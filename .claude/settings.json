@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw *)",
+      "Bash(docker compose *)",
+      "Bash(git *)",
+      "Edit",
+      "Write"
+    ],
+    "deny": [
+      "Bash(rm -rf *)"
+    ]
+  },
+  "env": {
+    "PROJECT": "resume-jd-matcher"
+  }
+}
