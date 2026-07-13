@@ -62,7 +62,7 @@ public class MatchService {
     @Transactional(readOnly = true)
     public MatchReportEntity get(Long id) {
         return matchReportRepository.findById(id)
-                .orElseThrow(() -> new DocumentProcessingException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "Match report not found: " + id));
     }
 

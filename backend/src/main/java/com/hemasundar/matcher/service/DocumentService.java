@@ -44,7 +44,7 @@ public class DocumentService {
     @Transactional(readOnly = true)
     public DocumentEntity get(Long id) {
         return documentRepository.findById(id)
-                .orElseThrow(() -> new DocumentProcessingException(
+                .orElseThrow(() -> new ResourceNotFoundException(
                         "Document not found: " + id));
     }
 }
