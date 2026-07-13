@@ -56,10 +56,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- Spring AI: Anthropic Claude -->
-        <dependency>
+        <!-- Spring AI: Ollama Claude -->
+         <dependency>
             <groupId>org.springframework.ai</groupId>
-            <artifactId>spring-ai-starter-model-anthropic</artifactId>
+            <artifactId>spring-ai-starter-model-ollama</artifactId>
         </dependency>
         <!-- Spring AI: local embeddings (ONNX transformers, free, no API key) -->
         <dependency>
