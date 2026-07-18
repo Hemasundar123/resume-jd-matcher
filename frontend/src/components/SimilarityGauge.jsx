@@ -1,16 +1,14 @@
-/** Small visual bar for the cosine-similarity score. */
 export default function SimilarityGauge({ percent }) {
   const clamped = Math.max(0, Math.min(100, percent));
-  const tone = clamped >= 70 ? 'good' : clamped >= 45 ? 'mid' : 'low';
+  const tone = clamped >= 70 ? '#4fd8c4' : clamped >= 45 ? '#ffb454' : '#ff6b6b';
 
   return (
-    <div className="gauge">
-      <div className="gauge-label">
-        <span>Semantic Match</span>
-        <strong>{clamped.toFixed(1)}%</strong>
-      </div>
-      <div className="gauge-track">
-        <div className={`gauge-fill gauge-${tone}`} style={{ width: `${clamped}%` }} />
+    <div className="gauge-wrap">
+      <div className="radial-gauge" style={{ '--p': clamped, '--tone': tone }}>
+        <div className="radial-gauge-inner">
+          <span className="value">{clamped.toFixed(0)}%</span>
+          <span className="label">Semantic match</span>
+        </div>
       </div>
     </div>
   );

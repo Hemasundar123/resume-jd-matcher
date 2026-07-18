@@ -44,23 +44,24 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>🤖 Resume ↔ JD Matcher</h1>
-        <p>Semantic scoring + AI feedback, powered by pgvector and a local/Claude chat model.</p>
+        <div className="eyebrow"><span className="dot" /> Semantic Analysis Engine</div>
+        <h1>Resume <span className="arrow">⇌</span> JD Matcher</h1>
+        <p>Feed in two documents. Get a similarity signal and a plain-language read on the gap.</p>
       </header>
 
       <main>
-        {status === 'loading' && <Loading label="Extracting, embedding, and analyzing…" />}
+        {status === 'loading' && <Loading />}
 
         {status === 'error' && (
           <div className="error-card">
             <p>{error}</p>
-            <button onClick={reset} className="secondary">Try Again</button>
+            <button onClick={reset} className="secondary">Run again</button>
           </div>
         )}
 
         {status === 'done' && result && <MatchResult result={result} onReset={reset} />}
 
-        {(status === 'idle' || status === 'error') && (
+        {(status === 'idle' || status === 'error') && status !== 'loading' && (
           <UploadForm
             onSubmitText={handleSubmitText}
             onSubmitUpload={handleSubmitUpload}
