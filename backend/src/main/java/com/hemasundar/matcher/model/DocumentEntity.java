@@ -2,6 +2,7 @@ package com.hemasundar.matcher.model;
 
 import jakarta.persistence.*;
 import java.time.OffsetDateTime;
+import org.hibernate.annotations.ColumnTransformer;
 
 
 @Entity
@@ -28,6 +29,7 @@ public class DocumentEntity {
      * "[0.1,0.2,...]"); the service layer converts to/from float[].
      */
     @Column(columnDefinition = "vector(384)")
+    @ColumnTransformer(write = "?::vector")
     private String embedding;
 
     @Column(name = "created_at", nullable = false, updatable = false,

@@ -5,8 +5,8 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;
 
 /**
- * Uses Claude (via Spring AI) to generate qualitative feedback comparing
- * a resume against a job description.
+ * Uses the configured chat model (via Spring AI) to generate qualitative
+ * feedback comparing a resume against a job description.
  */
 @Service
 public class FeedbackService {
@@ -34,10 +34,15 @@ public class FeedbackService {
         - matchingSkills: skills/experience in the resume that match the JD
         - gaps: important JD requirements the resume does not clearly show
         - suggestions: concrete ways the candidate could improve their fit
+
+        Respond with ONLY a single valid JSON object with exactly these three
+        keys: matchingSkills, gaps, suggestions. Keep each value under 40 words.
+        Do not include any text before or after the JSON. Ensure the JSON is
+        complete and properly closed with a final closing brace.
         """;
 
     /**
-     * Ask Claude to compare a resume and JD and return structured feedback.
+     * Ask the chat model to compare a resume and JD and return structured feedback.
      */
     public MatchFeedback analyze(String resumeText, String jdText) {
         return chatClient.prompt()

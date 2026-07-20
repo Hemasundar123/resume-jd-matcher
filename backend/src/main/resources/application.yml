@@ -7,7 +7,7 @@ spring:
     password: matcher
   jpa:
     hibernate:
-      ddl-auto: validate      
+      ddl-auto: validate
     properties:
       hibernate:
         format_sql: true
@@ -21,7 +21,13 @@ spring:
       chat:
         options:
           model: llama3.2
-          temperature: 0.2           
+          temperature: 0.2
+          format: json
+          num-predict: 1024
+    vectorstore:
+      pgvector:
+        initialize-schema: false
+        dimensions: 384
 
 server:
   port: 8080
