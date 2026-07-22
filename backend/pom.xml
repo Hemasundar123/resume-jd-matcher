@@ -57,10 +57,10 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!-- Spring AI: Ollama Claude -->
-         <dependency>
+         <!-- <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-model-ollama</artifactId>
-        </dependency>
+        </dependency> -->
         <!-- Spring AI: local embeddings (ONNX transformers, free, no API key) -->
         <dependency>
             <groupId>org.springframework.ai</groupId>
@@ -77,6 +77,11 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- Spring AI: OpenAI-compatible starter, pointed at NaraRouter -->
+         <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-model-openai</artifactId>
+       </dependency>
         <!-- Flyway migrations -->
         <dependency>
             <groupId>org.flywaydb</groupId>

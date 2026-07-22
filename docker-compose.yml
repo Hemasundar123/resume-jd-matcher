@@ -15,7 +15,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-
   backend:
     build:
       context: ./backend
@@ -28,13 +27,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/matcher
       SPRING_DATASOURCE_USERNAME: matcher
       SPRING_DATASOURCE_PASSWORD: matcher
-      SPRING_AI_OLLAMA_BASE_URL: http://host.docker.internal:11434
-    extra_hosts:
-      # host.docker.internal only resolves automatically on Docker Desktop (Mac/Windows).
-      # On Linux this line is what makes it work.
-      - "host.docker.internal:host-gateway"
+      SPRING_AI_OPENAI_API_KEY: ${NARAROUTER_API_KEY}
+      SPRING_AI_OPENAI_BASE_URL: https://router.bynara.id
     ports:
       - "8080:8080"
-
 volumes:
   matcher_pgdata:
