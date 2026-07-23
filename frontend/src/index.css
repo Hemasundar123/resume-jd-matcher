@@ -236,3 +236,29 @@ button.secondary:hover { border-color: var(--border-bright); }
 }
 
 hr { border: none; }
+
+/* ---------- Auth ---------- */
+.login-screen {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  max-width: 480px;
+  margin: 4rem auto 0;
+}
+.login-screen .eyebrow { justify-content: center; }
+.login-screen h1 { font-size: 2rem; }
+.login-btn {
+  margin-top: 1.5rem;
+  display: inline-block;
+  width: auto;
+  padding: 0.75rem 1.75rem;
+}
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.logout-btn {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}

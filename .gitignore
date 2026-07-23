@@ -2,9 +2,6 @@
 target/
 *.class
 *.jar
-!.mvn/wrapper/maven-wrapper.jar
-.mvn/
-
 # IDE
 .idea/
 *.iml
@@ -12,17 +9,13 @@ target/
 .settings/
 .classpath
 .project
-
 # Env & secrets
 .env
 *.local
-
 # Node / frontend
 node_modules/
 frontend/dist/
-
 # OS
 .DS_Store
-
 # Logs
 *.log

@@ -1,35 +1,14 @@
 services:
-  postgres:
-    image: pgvector/pgvector:pg16
-    container_name: matcher-db
-    environment:
-      POSTGRES_DB: matcher
-      POSTGRES_USER: matcher
-      POSTGRES_PASSWORD: matcher
-    ports:
-      - "5432:5432"
-    volumes:
-      - matcher_pgdata:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U matcher"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: matcher-backend
-    depends_on:
-      postgres:
-        condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/matcher
-      SPRING_DATASOURCE_USERNAME: matcher
-      SPRING_DATASOURCE_PASSWORD: matcher
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-dry-mountain-az5nl1wq.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+      SPRING_DATASOURCE_USERNAME: neondb_owner
+      SPRING_DATASOURCE_PASSWORD: ${NEON_DB_PASSWORD}
       SPRING_AI_OPENAI_API_KEY: ${NARAROUTER_API_KEY}
       SPRING_AI_OPENAI_BASE_URL: https://router.bynara.id
     ports:
       - "8080:8080"
-volumes:
-  matcher_pgdata:

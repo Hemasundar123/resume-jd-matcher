@@ -2,9 +2,9 @@ spring:
   application:
     name: resume-jd-matcher
   datasource:
-    url: jdbc:postgresql://localhost:5432/matcher
-    username: matcher
-    password: matcher
+    url: jdbc:postgresql://ep-dry-mountain-az5nl1wq.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: ${NEON_DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -29,7 +29,7 @@ spring:
         dimensions: 384
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 management:
   endpoints:

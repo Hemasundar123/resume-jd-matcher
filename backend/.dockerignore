@@ -4,4 +4,3 @@ target/
 .vscode/
 *.iml
 .git/
-.mvn/wrapper/maven-wrapper.jar
